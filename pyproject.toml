@@ -32,20 +32,12 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Typing :: Typed",
 ]
-dependencies = []
+dependencies = ['nd2', 'scikit-image', 'numpy']
 
 # https://peps.python.org/pep-0621/#dependencies-optional-dependencies
 [project.optional-dependencies]
 test = ["pytest", "pytest-cov"]
-dev = [
-    "black",
-    "ipython",
-    "mypy",
-    "pdbpp",      # https://github.com/pdbpp/pdbpp
-    "pre-commit",
-    "rich",       # https://github.com/Textualize/rich
-    "ruff",
-]
+dev = ["black", "ipython", "mypy", "pdbpp", "pre-commit", "rich", "ruff"]
 
 [project.urls]
 homepage = "https://github.com/tlambert03/chunglab-imaging"
@@ -57,17 +49,14 @@ line-length = 88
 target-version = "py39"
 src = ["src"]
 select = [
-    "E",    # style errors
-    "W",    # style warnings
-    "F",    # flakes
-    "I",    # isort
-    "UP",   # pyupgrade
-    "C4",   # flake8-comprehensions
-    "B",    # flake8-bugbear
-    "A001", # flake8-builtins
-    "RUF",  # ruff-specific rules
-    "TCH",  # flake8-type-checking
-    "TID",  # flake8-tidy-imports
+    "E",   # style errors
+    "F",   # flakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "C4",  # flake8-comprehensions
+    "RUF", # ruff-specific rules
+    "TCH", # flake8-type-checking
+    "TID", # flake8-tidy-imports
 ]
 
 
@@ -79,6 +68,7 @@ disallow_any_generics = false
 disallow_subclassing_any = false
 show_error_codes = true
 pretty = true
+untyped_calls_exclude = ["skimage"]
 
 # https://docs.pytest.org/en/6.2.x/customize.html
 [tool.pytest.ini_options]
