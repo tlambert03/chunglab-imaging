@@ -1,7 +1,3 @@
-# enable pre-commit.ci at https://pre-commit.ci/
-# it adds:
-# 1. auto fixing pull requests
-# 2. auto updating the pre-commit configuration
 ci:
   autoupdate_schedule: monthly
   autofix_commit_msg: "style(pre-commit.ci): auto fixes [...]"
@@ -14,21 +10,20 @@ repos:
       - id: validate-pyproject
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.1.3
+    rev: v0.1.7
     hooks:
       - id: ruff
         args: [--fix]
 
   - repo: https://github.com/psf/black
-    rev: 23.10.1
+    rev: 23.12.0
     hooks:
       - id: black
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.6.1
+    rev: v1.7.1
     hooks:
       - id: mypy
         files: "^src/"
-        # # you have to add the things you want to type check against here
-        # additional_dependencies:
-        #   - numpy
+        additional_dependencies:
+          - numpy
